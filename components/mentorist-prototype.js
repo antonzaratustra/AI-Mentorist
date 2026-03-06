@@ -1855,8 +1855,8 @@ function ActiveView(props) {
   }
 }
 
-export default function MentoristPrototype() {
-  const [state, setState] = useState(() => createInitialState());
+export default function MentoristPrototype({ initialState = null, onStateChange = null, storageKey = STORAGE_KEY }) {
+  const [state, setState] = useState(() => initialState ?? createInitialState());
   const [activeModule, setActiveModule] = useState("profile");
   const [selectedGoalId, setSelectedGoalId] = useState(null);
   const [selectedFormerSectionId, setSelectedFormerSectionId] = useState(FORMER_SECTION_DEFS[0].id);
@@ -1893,9 +1893,11 @@ export default function MentoristPrototype() {
 
   useEffect(() => {
     try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
+      const raw = window.localStorage.getItem(storageKey);
       if (raw) {
         setState(JSON.parse(raw));
+      } else if (initialState) {
+        setState(initialState);
       }
 
       const storedFontPreset = window.localStorage.getItem(FONT_STORAGE_KEY);
@@ -1915,15 +1917,15 @@ export default function MentoristPrototype() {
     } finally {
       setStorageReady(true);
     }
-  }, []);
+  }, [initialState, storageKey]);
 
   useEffect(() => {
     if (!storageReady) {
       return;
     }
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }, [state, storageReady]);
+    window.localStorage.setItem(storageKey, JSON.stringify(state));
+  }, [state, storageKey, storageReady]);
 
   useEffect(() => {
     if (!storageReady) {
@@ -1932,6 +1934,14 @@ export default function MentoristPrototype() {
 
     window.localStorage.setItem(FONT_STORAGE_KEY, fontPresetId);
   }, [fontPresetId, storageReady]);
+
+  useEffect(() => {
+    if (!storageReady || !onStateChange) {
+      return;
+    }
+
+    onStateChange(state);
+  }, [onStateChange, state, storageReady]);
 
   useEffect(() => {
     const activeFontPreset = findFontPreset(fontPresetId);
@@ -2089,7 +2099,7 @@ export default function MentoristPrototype() {
     setConstructorError("");
     pushNotice("Демо-кабинет сброшен к исходным тестовым данным.", "success");
     if (storageReady) {
-      window.localStorage.removeItem(STORAGE_KEY);
+      window.localStorage.removeItem(storageKey);
     }
   }
 

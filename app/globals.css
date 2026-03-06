@@ -92,7 +92,8 @@ button {
   padding: 24px;
 }
 
-.mentorist-page__glow {
+.mentorist-page__glow,
+.landing-page__glow {
   position: absolute;
   width: 34rem;
   height: 34rem;
@@ -102,13 +103,15 @@ button {
   pointer-events: none;
 }
 
-.mentorist-page__glow--left {
+.mentorist-page__glow--left,
+.landing-page__glow--left {
   top: -8rem;
   left: -12rem;
   background: var(--blue);
 }
 
-.mentorist-page__glow--right {
+.mentorist-page__glow--right,
+.landing-page__glow--right {
   right: -12rem;
   bottom: -12rem;
   background: var(--yellow);
@@ -121,6 +124,51 @@ button {
   grid-template-columns: minmax(296px, 320px) minmax(0, 1fr);
   gap: 22px;
   align-items: start;
+}
+
+.landing-page,
+.welcome-page,
+.auth-error-page {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.landing-hero,
+.welcome-card,
+.auth-error-card,
+.workspace-shell__head {
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+}
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.9fr);
+  gap: 28px;
+  align-items: stretch;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 36px;
+  background:
+    linear-gradient(180deg, rgba(7, 16, 30, 0.98), rgba(8, 18, 34, 0.9)),
+    radial-gradient(circle at 20% 18%, rgba(85, 216, 255, 0.16), transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(255, 198, 75, 0.12), transparent 24%);
+}
+
+.landing-hero__copy,
+.landing-hero__visual,
+.welcome-card__intro,
+.welcome-card__wheel,
+.welcome-form,
+.landing-preview-card {
+  display: grid;
+  gap: 14px;
 }
 
 .command-rail,
@@ -191,7 +239,11 @@ button {
 .brand-panel h1,
 .hero-panel h2,
 .workspace__head h3,
-.goal-map__core {
+.goal-map__core,
+.landing-hero h1,
+.welcome-card__intro h1,
+.auth-error-card h1,
+.workspace-shell__head h1 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: var(--font-display-weight);
@@ -219,6 +271,8 @@ button {
 .panel h3,
 .energy-card h3,
 .goal-card strong,
+.landing-preview-step h3,
+.welcome-form h3,
 .post-card h3,
 .action-card strong,
 .detail-card strong,
@@ -242,6 +296,10 @@ button {
 .brand-panel p,
 .hero-panel p,
 .panel p,
+.landing-hero p,
+.welcome-card p,
+.auth-error-card p,
+.landing-preview-step p,
 .detail-card p,
 .energy-card p,
 .field-group span,
@@ -580,6 +638,148 @@ button {
   min-width: 72px;
 }
 
+.auth-button-group {
+  display: grid;
+  gap: 8px;
+}
+
+.google-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 999px;
+  background: rgba(5, 16, 31, 0.16);
+  font-weight: 800;
+}
+
+.form-error {
+  margin: 0;
+  color: #ffb2a4;
+  line-height: 1.5;
+}
+
+.landing-hero h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 5.6vw, 5.5rem);
+  line-height: 0.92;
+}
+
+.landing-hero__copy {
+  align-content: center;
+  padding: 8px 0;
+}
+
+.landing-hero__copy > p {
+  max-width: 62ch;
+  font-size: 1.02rem;
+}
+
+.landing-hero__actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.landing-note,
+.landing-setup,
+.landing-preview-card,
+.welcome-form,
+.auth-error-card,
+.workspace-shell__head {
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(10, 20, 36, 0.78);
+}
+
+.landing-note,
+.landing-setup {
+  display: grid;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.landing-note strong,
+.landing-setup strong {
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
+}
+
+.landing-preview-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.landing-preview-card__stack {
+  display: grid;
+  gap: 12px;
+}
+
+.landing-preview-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.landing-preview-step strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: rgba(85, 216, 255, 0.12);
+}
+
+.landing-preview-step.is-active {
+  border-color: rgba(85, 216, 255, 0.24);
+  box-shadow: 0 0 0 1px rgba(85, 216, 255, 0.12), 0 0 36px rgba(85, 216, 255, 0.08);
+}
+
+.landing-preview-step h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.landing-preview-card--network {
+  align-content: start;
+}
+
+.landing-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.landing-pill-grid span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.56rem 0.82rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.auth-error-page {
+  display: grid;
+  place-items: center;
+}
+
+.auth-error-card {
+  width: min(680px, 100%);
+  display: grid;
+  gap: 14px;
+}
+
+.auth-error-card h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+
 .field,
 .field--textarea {
   width: 100%;
@@ -713,6 +913,38 @@ button {
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.12));
 }
 
+.balance-wheel--onboarding {
+  gap: 14px;
+}
+
+.balance-wheel__shell--neon {
+  background:
+    radial-gradient(circle at center, rgba(85, 216, 255, 0.18), transparent 40%),
+    radial-gradient(circle at center, rgba(158, 224, 78, 0.14), transparent 52%),
+    rgba(5, 13, 24, 0.74);
+  transform: scale(0.94);
+  opacity: 0.82;
+  animation: neonReveal 780ms ease forwards;
+}
+
+.balance-wheel--onboarding.is-live .balance-wheel__shell--neon {
+  box-shadow:
+    0 0 0 1px rgba(85, 216, 255, 0.08),
+    0 0 48px rgba(85, 216, 255, 0.16),
+    0 0 70px rgba(158, 224, 78, 0.08);
+}
+
+.balance-wheel--onboarding .balance-wheel__segment {
+  transition:
+    opacity 220ms ease,
+    filter 220ms ease,
+    transform 220ms ease;
+}
+
+.balance-wheel__detail--intro {
+  min-height: 130px;
+}
+
 .balance-wheel__core {
   fill: rgba(4, 11, 21, 0.94);
   stroke: rgba(255, 255, 255, 0.08);
@@ -795,6 +1027,123 @@ button {
 .balance-wheel__range input {
   width: 100%;
   accent-color: var(--blue);
+}
+
+.welcome-page {
+  display: grid;
+  place-items: center;
+}
+
+.welcome-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(340px, 0.9fr) minmax(320px, 0.8fr);
+  gap: 22px;
+  width: min(1380px, 100%);
+  padding: 26px;
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(7, 16, 30, 0.98), rgba(8, 18, 34, 0.9)),
+    radial-gradient(circle at 48% 42%, rgba(85, 216, 255, 0.14), transparent 22%),
+    radial-gradient(circle at 56% 48%, rgba(158, 224, 78, 0.12), transparent 24%),
+    radial-gradient(circle at 84% 14%, rgba(255, 198, 75, 0.08), transparent 28%);
+}
+
+.welcome-card__intro {
+  align-content: center;
+}
+
+.welcome-card__intro h1 {
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
+  max-width: 10ch;
+  line-height: 0.94;
+}
+
+.welcome-card__wheel {
+  align-content: center;
+}
+
+.welcome-form {
+  align-content: start;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.choice-row {
+  display: grid;
+  gap: 10px;
+}
+
+.choice-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  text-align: left;
+}
+
+.choice-card strong {
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
+}
+
+.choice-card span {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.choice-card.is-active {
+  border-color: rgba(85, 216, 255, 0.26);
+  background: rgba(85, 216, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(85, 216, 255, 0.1), 0 0 30px rgba(85, 216, 255, 0.06);
+}
+
+.welcome-form__hint {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.workspace-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.workspace-shell__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.workspace-shell__head h1 {
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  line-height: 0.96;
+}
+
+.workspace-shell__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@keyframes neonReveal {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.88);
+    filter: saturate(0.8);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.03);
+    filter: saturate(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1);
+  }
 }
 
 .ability-row,
@@ -1773,6 +2122,32 @@ button {
 }
 
 @media (max-width: 980px) {
+  .landing-page,
+  .welcome-page,
+  .auth-error-page {
+    padding: 18px;
+  }
+
+  .landing-hero,
+  .welcome-card {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero h1,
+  .welcome-card__intro h1 {
+    max-width: 12ch;
+  }
+
+  .workspace-shell__head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .workspace-shell__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   .hero-panel {
     grid-template-columns: 1fr;
   }
@@ -1825,6 +2200,12 @@ button {
     padding: 14px;
   }
 
+  .landing-page,
+  .welcome-page,
+  .auth-error-page {
+    padding: 14px;
+  }
+
   .command-rail,
   .hero-panel,
   .workspace,
@@ -1845,6 +2226,20 @@ button {
 
   .hero-panel h2 {
     font-size: 2.15rem;
+  }
+
+  .landing-hero,
+  .welcome-card,
+  .auth-error-card,
+  .workspace-shell__head {
+    border-radius: 24px;
+    padding: 18px;
+  }
+
+  .landing-hero h1,
+  .welcome-card__intro h1,
+  .auth-error-card h1 {
+    font-size: 2.35rem;
   }
 
   .module-stack {
@@ -1907,6 +2302,12 @@ button {
     padding: 12px;
   }
 
+  .landing-page,
+  .welcome-page,
+  .auth-error-page {
+    padding: 12px;
+  }
+
   .command-rail {
     gap: 12px;
   }
@@ -1931,6 +2332,15 @@ button {
 
   .energy-card p {
     display: none;
+  }
+
+  .landing-preview-step {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero h1,
+  .welcome-card__intro h1 {
+    font-size: 2rem;
   }
 
   .workspace-pills,

@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: Mentorist
+        - heading "Личная стратегия, которая собирает цели, баланс и поддержку в один живой контур." [level=1] [ref=e6]
+        - paragraph [ref=e7]: Сначала пользователь входит через Google, фиксирует текущее состояние сфер и получает персональный кабинет. Дальше поверх этого слоя подключаются формер, цели, планнер, контакты, группы и сетевое взаимодействие.
+        - generic [ref=e8]:
+          - button "Сначала настрой Supabase" [disabled] [ref=e10]:
+            - generic [ref=e11]: G
+            - text: Сначала настрой Supabase
+          - generic [ref=e12]:
+            - strong [ref=e13]: "Следом после входа:"
+            - generic [ref=e14]: неоновое колесо баланса, быстрый onboarding и сохранение состояния в Supabase.
+        - generic [ref=e15]:
+          - strong [ref=e16]: Supabase пока не настроен.
+          - paragraph [ref=e17]: "Добавь `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` и `NEXT_PUBLIC_SITE_URL` в `.env.local`, затем перезапусти проект."
+      - generic [ref=e18]:
+        - article [ref=e19]:
+          - paragraph [ref=e20]: Стартовый путь
+          - generic [ref=e21]:
+            - generic [ref=e22]:
+              - strong [ref=e23]: "01"
+              - generic [ref=e24]:
+                - heading "Вход через Google" [level=3] [ref=e25]
+                - paragraph [ref=e26]: Через Supabase Auth, с заделом под дополнительные провайдеры позже.
+            - generic [ref=e27]:
+              - strong [ref=e28]: "02"
+              - generic [ref=e29]:
+                - heading "Приветствие и баланс сфер" [level=3] [ref=e30]
+                - paragraph [ref=e31]: Сначала экран собирает внимание на колесе, затем просит зафиксировать ощущения по 4 сферам.
+            - generic [ref=e32]:
+              - strong [ref=e33]: "03"
+              - generic [ref=e34]:
+                - heading "Рабочий кабинет" [level=3] [ref=e35]
+                - paragraph [ref=e36]: Данные уходят в Supabase, а клиентский state остается быстрым за счет локального кэша.
+        - article [ref=e37]:
+          - paragraph [ref=e38]: Архитектурный задел
+          - generic [ref=e39]:
+            - generic [ref=e40]: profiles
+            - generic [ref=e41]: onboarding
+            - generic [ref=e42]: workspace_state
+            - generic [ref=e43]: future network
+          - paragraph [ref=e44]: Уже сейчас в структуру заложены отдельный профиль пользователя, прогресс onboarding и отдельное хранилище состояния кабинета. Это не мешает будущим модулям и работе по сети.
+  - button "Open Next.js Dev Tools" [ref=e50] [cursor=pointer]:
+    - img [ref=e51]
+  - alert [ref=e54]

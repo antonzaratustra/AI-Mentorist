@@ -23,6 +23,9 @@
 - Скрытый тест шрифтов включается через `Alt+Shift+F` или `?fontlab=1`
 - Основная сборочная проверка: `npm run build`
 - Для ручной проверки UI использовать локальный `npm run dev`
+- Preview-маршруты без реального Supabase:
+  - `/welcome?preview=1`
+  - `/workspace?preview=1`
 
 ## Стиль работы по проекту
 

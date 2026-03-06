@@ -1,0 +1,67 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: Добро пожаловать
+        - heading "Сначала почувствуем, как сейчас устроен твой внутренний баланс." [level=1] [ref=e6]
+        - paragraph [ref=e7]: Колесо на секунду оживает и собирается в стартовый образ. Потом ты можешь руками скорректировать каждую сферу и закрепить первый снимок состояния.
+      - generic [ref=e9]:
+        - img [ref=e11]:
+          - generic [ref=e25]: БАЛАНС
+          - generic [ref=e26]: "62"
+          - generic [ref=e27]: ТЕКУЩЕЕ ОЩУЩЕНИЕ ПО 4 СФЕРАМ
+        - generic [ref=e28]:
+          - button "Развитие 69" [ref=e29] [cursor=pointer]:
+            - generic [ref=e30]: Развитие
+            - strong [ref=e31]: "69"
+          - button "Здоровье 63" [ref=e32] [cursor=pointer]:
+            - generic [ref=e33]: Здоровье
+            - strong [ref=e34]: "63"
+          - button "Дело 61" [ref=e35] [cursor=pointer]:
+            - generic [ref=e36]: Дело
+            - strong [ref=e37]: "61"
+          - button "Отношения 56" [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]: Отношения
+            - strong [ref=e40]: "56"
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: Твоя оценка
+            - heading "Развитие" [level=3] [ref=e44]
+            - paragraph [ref=e45]: Перетащи сегмент прямо на колесе или скорректируй значение ползунком.
+          - generic [ref=e46]:
+            - button "−" [ref=e47] [cursor=pointer]
+            - slider "Состояние сферы Развитие" [ref=e48]: "69"
+            - button "+" [ref=e49] [cursor=pointer]
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - paragraph [ref=e53]: Базовое заполнение
+            - heading "Соберем стартовый профиль" [level=3] [ref=e54]
+          - generic [ref=e55]: Шаг 1
+        - generic [ref=e56]:
+          - generic [ref=e57]: Как к тебе обращаться
+          - textbox "Как к тебе обращаться" [ref=e58]:
+            - /placeholder: Например, Марина
+            - text: Марина
+        - generic [ref=e59]:
+          - generic [ref=e60]: На чем сейчас главный фокус
+          - textbox "На чем сейчас главный фокус" [ref=e61]:
+            - /placeholder: Что ты хочешь стабилизировать или сдвинуть в ближайшее время
+        - generic [ref=e62]:
+          - generic [ref=e63]: Какой тип поддержки нужен в первую очередь
+          - generic [ref=e64]:
+            - button "Наставник Нужна структура, внешняя проверка и трезвый взгляд." [ref=e65]:
+              - strong [ref=e66]: Наставник
+              - generic [ref=e67]: Нужна структура, внешняя проверка и трезвый взгляд.
+            - button "Партнер по ритму Нужен человек, с кем двигаться параллельно и не выпадать." [ref=e68]:
+              - strong [ref=e69]: Партнер по ритму
+              - generic [ref=e70]: Нужен человек, с кем двигаться параллельно и не выпадать.
+        - generic [ref=e71]:
+          - strong [ref=e72]: Схема базы еще не применена.
+          - paragraph [ref=e73]: "Сначала выполни SQL из `supabase/mentorist_schema.sql`, иначе onboarding не сохранится."
+        - generic [ref=e74]:
+          - button "Открыть кабинет" [ref=e75] [cursor=pointer]
+          - generic [ref=e76]: Данные сохраняются локально сразу и синхронно уходят в Supabase.
+  - button "Open Next.js Dev Tools" [ref=e82] [cursor=pointer]:
+    - img [ref=e83]
+  - alert [ref=e86]

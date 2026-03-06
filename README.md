@@ -26,6 +26,17 @@ npm run dev
 npm run build
 ```
 
+## Supabase и auth
+
+- Корневой маршрут `/` теперь работает как лендинг
+- После входа через Google пользователь попадает на `/welcome`
+- После стартового onboarding открывается `/workspace`
+- SQL для таблиц и RLS лежит в `supabase/mentorist_schema.sql`
+- Инструкция по env и redirect URL лежит в `docs/supabase-setup.md`
+- Для визуальной разработки без секретов есть preview-маршруты:
+  - `/welcome?preview=1`
+  - `/workspace?preview=1`
+
 ## Структура
 
 - `app/` — layout, entrypoint, глобальные стили, иконка
