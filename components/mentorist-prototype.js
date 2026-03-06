@@ -16,7 +16,8 @@ import {
 } from "./mentorist-data";
 
 const STORAGE_KEY = "mentorist-demo-state-v2";
-const FONT_STORAGE_KEY = "mentorist-font-preset-v1";
+const DEFAULT_FONT_PRESET_ID = "font-04";
+const FONT_STORAGE_KEY = "mentorist-font-preset-v2";
 const USER_ID = "user";
 
 const STOP_WORDS = new Set([
@@ -356,7 +357,7 @@ function getGoalStatusTone(status) {
 }
 
 function findFontPreset(id) {
-  return FONT_PRESETS.find((preset) => preset.id === id) ?? FONT_PRESETS[0];
+  return FONT_PRESETS.find((preset) => preset.id === id) ?? FONT_PRESETS.find((preset) => preset.id === DEFAULT_FONT_PRESET_ID) ?? FONT_PRESETS[0];
 }
 
 function polarToCartesian(cx, cy, radius, angle) {
@@ -1863,7 +1864,8 @@ export default function MentoristPrototype() {
   const [selectedGroupId, setSelectedGroupId] = useState(null);
   const [selectedPostId, setSelectedPostId] = useState(null);
   const [selectedBalanceSphereId, setSelectedBalanceSphereId] = useState("growth");
-  const [fontPresetId, setFontPresetId] = useState(FONT_PRESETS[0].id);
+  const [fontPresetId, setFontPresetId] = useState(DEFAULT_FONT_PRESET_ID);
+  const [isFontLabVisible, setIsFontLabVisible] = useState(false);
   const [proximaAvailable, setProximaAvailable] = useState(false);
   const [formerDraft, setFormerDraft] = useState("");
   const [goalDraft, setGoalDraft] = useState(() => createEmptyGoalDraft());
@@ -1900,6 +1902,14 @@ export default function MentoristPrototype() {
       if (storedFontPreset && FONT_PRESETS.some((preset) => preset.id === storedFontPreset)) {
         setFontPresetId(storedFontPreset);
       }
+
+      const params = new URL(window.location.href).searchParams;
+      const shouldShowFontLab = params.get("fontlab") === "1";
+      if (shouldShowFontLab) {
+        setIsFontLabVisible(true);
+      }
+
+      window.localStorage.removeItem("mentorist-font-lab-visible-v1");
     } catch {
       // Ignore corrupted local storage and keep demo defaults.
     } finally {
@@ -1937,6 +1947,18 @@ export default function MentoristPrototype() {
 
   useEffect(() => {
     setProximaAvailable(Boolean(document.fonts?.check?.('16px "Proxima Nova"')));
+  }, []);
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.altKey && event.shiftKey && event.code === "KeyF") {
+        event.preventDefault();
+        setIsFontLabVisible((current) => !current);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -2872,7 +2894,9 @@ export default function MentoristPrototype() {
             </p>
           </div>
 
-          <FontLab fontPresetId={fontPresetId} onSelectFontPreset={setFontPresetId} proximaAvailable={proximaAvailable} />
+          {isFontLabVisible ? (
+            <FontLab fontPresetId={fontPresetId} onSelectFontPreset={setFontPresetId} proximaAvailable={proximaAvailable} />
+          ) : null}
 
           <AppNav activeModule={activeModule} onNavigate={navigate} />
 

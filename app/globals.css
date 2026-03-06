@@ -21,11 +21,11 @@
   --violet: #9197ff;
   --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.34);
   --shadow-strong: 0 36px 120px rgba(0, 0, 0, 0.42);
-  --font-display: "Proxima Nova", "Avenir Next", "Segoe UI", sans-serif;
-  --font-body: "Avenir Next", "Proxima Nova", "Segoe UI", sans-serif;
-  --font-display-weight: 800;
-  --font-body-weight: 650;
-  --font-display-tracking: -0.02em;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+  --font-display-weight: 700;
+  --font-body-weight: 620;
+  --font-display-tracking: -0.016em;
   --font-body-tracking: -0.01em;
 }
 

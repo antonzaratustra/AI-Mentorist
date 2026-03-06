@@ -1,9 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Mentorist Prototype",
-  description:
-    "Interactive Next.js prototype of the Mentorist life strategy service.",
+  title: "Mentorist",
+  description: "Связный кабинет личной стратегии, целей, наставничества и групповой поддержки.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
