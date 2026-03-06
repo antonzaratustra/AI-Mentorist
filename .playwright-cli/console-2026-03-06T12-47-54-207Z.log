@@ -1,0 +1,198 @@
+[  352080ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at eval (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js?id=%255Bproject%255D%252Fcomponents%252Fmentorist-prototype.js+%255Bapp-client%255D+%2528ecmascript%2529:670:50)
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js?id=%255Bproject%255D%252Fcomponents%252Fmentorist-prototype.js+%255Bapp-client%255D+%2528ecmascript%2529:669:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[  369628ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  369846ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at eval (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js?id=%255Bproject%255D%252Fcomponents%252Fmentorist-prototype.js+%255Bapp-client%255D+%2528ecmascript%2529:670:50)
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js?id=%255Bproject%255D%252Fcomponents%252Fmentorist-prototype.js+%255Bapp-client%255D+%2528ecmascript%2529:669:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[  370386ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/:0
+[  370898ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1467:50
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1466:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  373945ms] [WARNING] The resource http://127.0.0.1:3000/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://127.0.0.1:3000/:0
+[  378878ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  379574ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/:0
+[  381235ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1467:50
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1466:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  383826ms] [WARNING] The resource http://127.0.0.1:3000/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://127.0.0.1:3000/:0
+[  392509ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  393424ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/:0
+[  393829ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1467:50
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1466:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  396841ms] [WARNING] The resource http://127.0.0.1:3000/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://127.0.0.1:3000/:0
+[  403350ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  403915ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/:0
+[  404458ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1467:50
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1466:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  407454ms] [WARNING] The resource http://127.0.0.1:3000/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://127.0.0.1:3000/:0
+[  421379ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  421894ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/:0
+[  422555ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1467:50
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1466:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  425569ms] [WARNING] The resource http://127.0.0.1:3000/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://127.0.0.1:3000/:0
+[  433039ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  433614ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/:0
+[  434190ms] TypeError: Cannot read properties of undefined (reading 'growth')
+    at http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1467:50
+    at Array.map (<anonymous>)
+    at HeroRing (http://127.0.0.1:3000/_next/static/chunks/components_6fb738bf._.js:1466:33)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  437203ms] [WARNING] The resource http://127.0.0.1:3000/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://127.0.0.1:3000/:0
+[  451509ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  533495ms] [ERROR] ./app/layout.js:1:1
+Module not found: Can't resolve './globals.css'
+> 1 | import "./globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export const metadata = {
+  4 |   title: "Mentorist Prototype",
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  548025ms] [ERROR] ./app/layout.js:1:1
+Module not found: Can't resolve './globals.css'
+> 1 | import "./globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export const metadata = {
+  4 |   title: "Mentorist Prototype",
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  548196ms] [ERROR] ./app/layout.js:1:1
+Module not found: Can't resolve './globals.css'
+> 1 | import "./globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export const metadata = {
+  4 |   title: "Mentorist Prototype",
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  548597ms] [ERROR] ./app/layout.js:1:1
+Module not found: Can't resolve './globals.css'
+> 1 | import "./globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export const metadata = {
+  4 |   title: "Mentorist Prototype",
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  773756ms] [ERROR] ./app/layout.js:1:1
+Module not found: Can't resolve './globals.css'
+> 1 | import "./globals.css";
+    | ^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export const metadata = {
+  4 |   title: "Mentorist Prototype",
+
+https://nextjs.org/docs/messages/module-not-found @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127

@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useDeferredValue, useEffect, useState } from "react";
+import { startTransition, useDeferredValue, useEffect, useRef, useState } from "react";
 import {
   CONTACT_REPLY_LIBRARY,
   ENERGY_META,
@@ -353,13 +353,356 @@ function getGoalStatusTone(status) {
   }
 }
 
-function HeroRing({ average }) {
+function polarToCartesian(cx, cy, radius, angle) {
+  const angleInRadians = ((angle - 90) * Math.PI) / 180;
+  return {
+    x: cx + radius * Math.cos(angleInRadians),
+    y: cy + radius * Math.sin(angleInRadians),
+  };
+}
+
+function describeSector(cx, cy, innerRadius, outerRadius, startAngle, endAngle) {
+  const outerStart = polarToCartesian(cx, cy, outerRadius, startAngle);
+  const outerEnd = polarToCartesian(cx, cy, outerRadius, endAngle);
+  const innerStart = polarToCartesian(cx, cy, innerRadius, endAngle);
+  const innerEnd = polarToCartesian(cx, cy, innerRadius, startAngle);
+  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+  return [
+    `M ${outerStart.x} ${outerStart.y}`,
+    `A ${outerRadius} ${outerRadius} 0 ${largeArcFlag} 1 ${outerEnd.x} ${outerEnd.y}`,
+    `L ${innerStart.x} ${innerStart.y}`,
+    `A ${innerRadius} ${innerRadius} 0 ${largeArcFlag} 0 ${innerEnd.x} ${innerEnd.y}`,
+    "Z",
+  ].join(" ");
+}
+
+function buildGoalCanvasNodes(goals) {
+  const layouts = {
+    growth: [
+      { left: 26, top: 22 },
+      { left: 18, top: 36 },
+    ],
+    health: [
+      { left: 74, top: 20 },
+      { left: 84, top: 34 },
+    ],
+    work: [
+      { left: 74, top: 74 },
+      { left: 84, top: 58 },
+    ],
+    relationships: [
+      { left: 28, top: 76 },
+      { left: 16, top: 58 },
+    ],
+  };
+  const indexes = {
+    growth: 0,
+    health: 0,
+    work: 0,
+    relationships: 0,
+  };
+
+  return goals.map((goal) => {
+    const nextIndex = indexes[goal.sphere];
+    indexes[goal.sphere] += 1;
+    const point = layouts[goal.sphere][nextIndex % layouts[goal.sphere].length];
+    const drift = Math.floor(nextIndex / layouts[goal.sphere].length) * 6;
+
+    return {
+      ...goal,
+      left: point.left + (goal.sphere === "health" || goal.sphere === "work" ? drift : -drift),
+      top: point.top + (goal.sphere === "relationships" || goal.sphere === "work" ? drift : -drift),
+    };
+  });
+}
+
+function CanvasSurface({
+  className = "",
+  worldClassName = "",
+  hint = "Тяни фон, чтобы двигаться по канвасу.",
+  defaultScale = 1,
+  minScale = 0.78,
+  maxScale = 1.9,
+  children,
+}) {
+  const frameRef = useRef(null);
+  const dragRef = useRef(null);
+  const [transform, setTransform] = useState({ x: 0, y: 0, scale: defaultScale });
+  const [dragging, setDragging] = useState(false);
+
+  function clampOffset(value, scale) {
+    const maxOffset = 220 * scale;
+    return clamp(value, -maxOffset, maxOffset);
+  }
+
+  function applyScale(nextScale) {
+    setTransform((current) => ({
+      x: clampOffset(current.x, nextScale),
+      y: clampOffset(current.y, nextScale),
+      scale: nextScale,
+    }));
+  }
+
+  function handlePointerDown(event) {
+    if (event.target.closest("button, input, textarea, select, a, label")) {
+      return;
+    }
+
+    dragRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+    };
+    setDragging(true);
+  }
+
+  function handlePointerMove(event) {
+    if (!dragRef.current) {
+      return;
+    }
+
+    const deltaX = event.clientX - dragRef.current.x;
+    const deltaY = event.clientY - dragRef.current.y;
+
+    dragRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+    };
+
+    setTransform((current) => ({
+      ...current,
+      x: clampOffset(current.x + deltaX, current.scale),
+      y: clampOffset(current.y + deltaY, current.scale),
+    }));
+  }
+
+  function stopDragging() {
+    dragRef.current = null;
+    setDragging(false);
+  }
+
+  function handleWheel(event) {
+    event.preventDefault();
+    const delta = event.deltaY > 0 ? -0.08 : 0.08;
+    applyScale(clamp(transform.scale + delta, minScale, maxScale));
+  }
+
+  function resetCanvas() {
+    setTransform({ x: 0, y: 0, scale: defaultScale });
+  }
+
   return (
-    <div className="balance-ring">
-      <div className="balance-ring__inner">
-        <span className="balance-ring__eyebrow">Баланс</span>
-        <strong>{average}</strong>
-        <span className="balance-ring__caption">средний индекс по 4 сферам</span>
+    <div className={`canvas-surface ${className} ${dragging ? "is-dragging" : ""}`}>
+      <div className="canvas-surface__toolbar">
+        <span className="canvas-surface__hint">{hint}</span>
+        <div className="canvas-surface__controls">
+          <button
+            aria-label="Уменьшить масштаб"
+            className="icon-button"
+            onClick={() => applyScale(clamp(transform.scale - 0.1, minScale, maxScale))}
+            type="button"
+          >
+            −
+          </button>
+          <button
+            aria-label="Увеличить масштаб"
+            className="icon-button"
+            onClick={() => applyScale(clamp(transform.scale + 0.1, minScale, maxScale))}
+            type="button"
+          >
+            +
+          </button>
+          <button className="icon-button icon-button--wide" onClick={resetCanvas} type="button">
+            Центр
+          </button>
+        </div>
+      </div>
+      <div
+        className="canvas-surface__frame"
+        onPointerCancel={stopDragging}
+        onPointerDown={handlePointerDown}
+        onPointerLeave={stopDragging}
+        onPointerMove={handlePointerMove}
+        onPointerUp={stopDragging}
+        onWheel={handleWheel}
+        ref={frameRef}
+      >
+        <div
+          className={`canvas-surface__world ${worldClassName}`}
+          style={{
+            transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HeroRing({ average, spheres, selectedSphereId, onSelectSphere, onChangeSphere }) {
+  const wheelRef = useRef(null);
+  const dragRef = useRef(null);
+  const sectors = [
+    { id: "growth", start: 270, end: 360 },
+    { id: "health", start: 0, end: 90 },
+    { id: "work", start: 90, end: 180 },
+    { id: "relationships", start: 180, end: 270 },
+  ];
+  const selectedSphere = SPHERE_META[selectedSphereId];
+  const innerRadius = 68;
+  const minOuterRadius = 106;
+  const maxOuterRadius = 156;
+
+  function getPointerData(clientX, clientY) {
+    if (!wheelRef.current) {
+      return null;
+    }
+
+    const rect = wheelRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const distance = Math.hypot(clientX - centerX, clientY - centerY);
+    const angle = (Math.atan2(clientY - centerY, clientX - centerX) * 180) / Math.PI;
+    const normalizedAngle = (angle + 450) % 360;
+
+    let sphereId = "growth";
+    if (normalizedAngle >= 0 && normalizedAngle < 90) {
+      sphereId = "health";
+    } else if (normalizedAngle >= 90 && normalizedAngle < 180) {
+      sphereId = "work";
+    } else if (normalizedAngle >= 180 && normalizedAngle < 270) {
+      sphereId = "relationships";
+    }
+
+    const nextValue = clamp(
+      Math.round(((distance - innerRadius) / (maxOuterRadius - innerRadius)) * 100),
+      12,
+      100,
+    );
+
+    return {
+      sphereId,
+      nextValue,
+      distance,
+    };
+  }
+
+  function updateFromPointer(clientX, clientY) {
+    const result = getPointerData(clientX, clientY);
+    if (!result || result.distance < innerRadius - 10 || result.distance > maxOuterRadius + 18) {
+      return;
+    }
+
+    onSelectSphere(result.sphereId);
+    onChangeSphere(result.sphereId, result.nextValue);
+  }
+
+  function handlePointerDown(event) {
+    dragRef.current = true;
+    updateFromPointer(event.clientX, event.clientY);
+  }
+
+  function handlePointerMove(event) {
+    if (!dragRef.current) {
+      return;
+    }
+
+    updateFromPointer(event.clientX, event.clientY);
+  }
+
+  function stopPointer() {
+    dragRef.current = false;
+  }
+
+  return (
+    <div className="balance-wheel">
+      <div className="balance-wheel__shell">
+        <svg
+          className="balance-wheel__svg"
+          onPointerCancel={stopPointer}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={stopPointer}
+          ref={wheelRef}
+          viewBox="0 0 320 320"
+        >
+          {[92, 110, 128, 146].map((radius) => (
+            <circle key={radius} className="balance-wheel__grid" cx="160" cy="160" r={radius} />
+          ))}
+          {sectors.map((sector) => (
+            <path
+              key={`${sector.id}-base`}
+              className="balance-wheel__base"
+              d={describeSector(160, 160, innerRadius, maxOuterRadius, sector.start, sector.end)}
+            />
+          ))}
+          {sectors.map((sector) => {
+            const value = spheres[sector.id];
+            const outerRadius = minOuterRadius + ((maxOuterRadius - minOuterRadius) * value) / 100;
+            return (
+              <path
+                key={sector.id}
+                className={`balance-wheel__segment ${selectedSphereId === sector.id ? "is-active" : ""}`}
+                d={describeSector(160, 160, innerRadius, outerRadius, sector.start, sector.end)}
+                fill={SPHERE_META[sector.id].color}
+                onClick={() => onSelectSphere(sector.id)}
+              />
+            );
+          })}
+          <circle className="balance-wheel__core" cx="160" cy="160" r={innerRadius - 4} />
+          <text className="balance-wheel__eyebrow" x="160" y="122">
+            БАЛАНС
+          </text>
+          <text className="balance-wheel__value" x="160" y="170">
+            {average}
+          </text>
+          <text className="balance-wheel__caption" x="160" y="205">
+            СРЕДНИЙ ИНДЕКС ПО 4 СФЕРАМ
+          </text>
+        </svg>
+      </div>
+      <div className="balance-wheel__legend">
+        {[
+          { id: "growth", label: "Рост" },
+          { id: "health", label: "Здоровье" },
+          { id: "work", label: "Дело" },
+          { id: "relationships", label: "Отношения" },
+        ].map((item) => (
+          <button
+            key={item.id}
+            className={`balance-wheel__chip ${selectedSphereId === item.id ? "is-active" : ""}`}
+            onClick={() => onSelectSphere(item.id)}
+            style={{ "--chip-accent": SPHERE_META[item.id].color }}
+            type="button"
+          >
+            <span>{item.label}</span>
+            <strong>{spheres[item.id]}</strong>
+          </button>
+        ))}
+      </div>
+      <div className="balance-wheel__detail">
+        <div>
+          <span className="section-kicker">Управление сферой</span>
+          <h3>{selectedSphere.label}</h3>
+          <p>Перетаскивай нужный сегмент по радиусу или меняй значение точечно.</p>
+        </div>
+        <div className="balance-wheel__range">
+          <button className="icon-button" onClick={() => onChangeSphere(selectedSphereId, spheres[selectedSphereId] - 4)} type="button">
+            −
+          </button>
+          <input
+            aria-label={`Состояние сферы ${selectedSphere.label}`}
+            max="100"
+            min="0"
+            onChange={(event) => onChangeSphere(selectedSphereId, Number(event.target.value))}
+            type="range"
+            value={spheres[selectedSphereId]}
+          />
+          <button className="icon-button" onClick={() => onChangeSphere(selectedSphereId, spheres[selectedSphereId] + 4)} type="button">
+            +
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -387,26 +730,32 @@ function ProfileView({ state, semanticWords, activeGoals, recentEvents, onCreate
   return (
     <div className="view-grid profile-view">
       <section className="panel profile-cloud-panel">
-        <div className="word-cloud">
+        <div className="panel-head">
+          <div>
+            <p className="section-kicker">Карта смыслов</p>
+            <h3>Семантическое поле текущей стратегии</h3>
+          </div>
+        </div>
+        <CanvasSurface className="profile-canvas" defaultScale={0.96} hint="Тяни фон и смотри, какие слова реально держат стратегию.">
+          <div className="profile-focus profile-focus--canvas" style={{ left: "50%", top: "50%" }}>
+            <div className="avatar-core">{state.profile.avatar}</div>
+            <div className="profile-focus__copy">
+              <p className="section-kicker">Личный вектор</p>
+              <h3>{state.profile.name}</h3>
+              <p>{state.profile.role}</p>
+              <p>{state.profile.mission}</p>
+            </div>
+          </div>
           {semanticWords.map((item) => (
             <span
               key={item.word}
-              className={`word-cloud__item word-cloud__item--${item.variant}`}
+              className={`semantic-node semantic-node--${item.variant}`}
               style={{ left: `${item.left}%`, top: `${item.top}%` }}
             >
               {item.word}
             </span>
           ))}
-        </div>
-        <div className="profile-focus">
-          <div className="avatar-core">{state.profile.avatar}</div>
-          <div className="profile-focus__copy">
-            <p className="section-kicker">Личный вектор</p>
-            <h3>{state.profile.name}</h3>
-            <p>{state.profile.role}</p>
-            <p>{state.profile.mission}</p>
-          </div>
-        </div>
+        </CanvasSurface>
       </section>
 
       <section className="panel profile-summary-panel">
@@ -488,7 +837,12 @@ function FormerView({
   return (
     <div className="view-grid former-view">
       <section className="panel former-menu-panel">
-        <p className="section-kicker">Разделы формера</p>
+        <div className="panel-head">
+          <div>
+            <p className="section-kicker">Разделы формера</p>
+            <h3>Опорные слои личной стратегии</h3>
+          </div>
+        </div>
         <div className="former-menu">
           {formerNavigation.map((section) => (
             <button
@@ -501,6 +855,7 @@ function FormerView({
                 <span>{section.label}</span>
                 <strong>{section.fill}%</strong>
               </div>
+              <p>{section.hint}</p>
               <div className="meter">
                 <span style={{ width: `${section.fill}%` }} />
               </div>
@@ -519,10 +874,10 @@ function FormerView({
         />
         <div className="panel-actions">
           <button className="button button--primary" onClick={onSaveSection} type="button">
-            Сохранить раздел
+            Сохранить
           </button>
           <button className="button button--ghost" onClick={onSendToConstructor} type="button">
-            Использовать в новой цели
+            В конструктор
           </button>
         </div>
       </section>
@@ -574,13 +929,7 @@ function GoalsView({
   onCreateGoal,
   onOpenGroup,
 }) {
-  const orbitGoals = activeGoals.slice(0, 4);
-  const orbitPositions = [
-    { left: 51, top: 15 },
-    { left: 78, top: 42 },
-    { left: 60, top: 75 },
-    { left: 26, top: 50 },
-  ];
+  const goalNodes = buildGoalCanvasNodes(activeGoals.slice(0, 8));
 
   return (
     <div className="view-grid goals-view">
@@ -645,25 +994,32 @@ function GoalsView({
           </button>
         </div>
 
-        <div className="goal-map">
-          <div className="goal-map__core">Мои цели</div>
-          {orbitGoals.map((goal, index) => (
+        <CanvasSurface className="goal-map" defaultScale={0.94} hint="Перетаскивай карту и смотри, как цели разложены по сферам.">
+          <div className="goal-map__grid">
+            {["growth", "health", "relationships", "work"].map((sphereId) => (
+              <div key={sphereId} className={`goal-map__zone goal-map__zone--${sphereId}`}>
+                <span>{SPHERE_META[sphereId].label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="goal-map__core">Ядро недели</div>
+          {goalNodes.map((goal) => (
             <button
               key={goal.id}
               className={`goal-orbit ${selectedGoal?.id === goal.id ? "is-active" : ""}`}
               onClick={() => onSelectGoal(goal.id)}
               style={{
-                left: `${orbitPositions[index]?.left ?? 50}%`,
-                top: `${orbitPositions[index]?.top ?? 50}%`,
+                left: `${goal.left}%`,
+                top: `${goal.top}%`,
                 "--orbit-accent": SPHERE_META[goal.sphere].color,
               }}
               type="button"
             >
               <strong>{goal.title}</strong>
-              <span>{goalProgress(goal)}%</span>
+              <span>{goalProgress(goal)}% готово</span>
             </button>
           ))}
-        </div>
+        </CanvasSurface>
 
         <div className="radius-control">
           <label htmlFor="radius">Горизонт планирования</label>
@@ -946,7 +1302,7 @@ function ConstructorView({
               </select>
             </label>
             <div className="summary-card">
-              <strong>Что произойдет после сохранения</strong>
+              <strong>После сохранения</strong>
               <p>
                 Цель попадет в планнер по выбранным дням, появится в карте целей и сразу привяжется к группе поддержки.
               </p>
@@ -977,13 +1333,27 @@ function ConstructorView({
               </select>
             </label>
             <div className="summary-card field-group--full">
-              <strong>Проверка связности</strong>
-              <ul className="focus-list">
-                <li>Смысл: {draft.why || "пока не заполнен"}</li>
-                <li>Группа: {currentGroup?.name ?? "не выбрана"}</li>
-                <li>Пара: {mentor?.name ?? "—"} / {mentee?.name ?? "—"}</li>
-                <li>Этапов: {draft.stages.filter((stage) => stage.title.trim()).length}</li>
-              </ul>
+              <strong>Сводка перед запуском</strong>
+              <div className="summary-list">
+                <div className="summary-list__row">
+                  <span>Смысл</span>
+                  <p>{draft.why || "Пока не заполнен"}</p>
+                </div>
+                <div className="summary-list__row">
+                  <span>Группа</span>
+                  <p>{currentGroup?.name ?? "Не выбрана"}</p>
+                </div>
+                <div className="summary-list__row">
+                  <span>Пара поддержки</span>
+                  <p>
+                    {mentor?.name ?? "—"} / {mentee?.name ?? "—"}
+                  </p>
+                </div>
+                <div className="summary-list__row">
+                  <span>Этапы</span>
+                  <p>{draft.stages.filter((stage) => stage.title.trim()).length}</p>
+                </div>
+              </div>
             </div>
           </div>
         ) : null}
@@ -1047,7 +1417,7 @@ function ContactsView({
           />
         </div>
 
-        <div className="contacts-map">
+        <CanvasSurface className="contacts-map" defaultScale={0.92} hint="Тяни карту связей и приближай узлы как на рабочем поле.">
           <svg className="contacts-map__lines" preserveAspectRatio="none" viewBox="0 0 100 100">
             {lines.map(([from, to]) => (
               <line
@@ -1072,7 +1442,7 @@ function ContactsView({
               <span>{contact.role}</span>
             </button>
           ))}
-        </div>
+        </CanvasSurface>
       </section>
 
       <section className="panel contact-detail-panel">
@@ -1438,6 +1808,7 @@ export default function MentoristPrototype() {
   const [selectedContactId, setSelectedContactId] = useState(null);
   const [selectedGroupId, setSelectedGroupId] = useState(null);
   const [selectedPostId, setSelectedPostId] = useState(null);
+  const [selectedBalanceSphereId, setSelectedBalanceSphereId] = useState("growth");
   const [formerDraft, setFormerDraft] = useState("");
   const [goalDraft, setGoalDraft] = useState(() => createEmptyGoalDraft());
   const [draftMode, setDraftMode] = useState("create");
@@ -1591,9 +1962,20 @@ export default function MentoristPrototype() {
     });
   }
 
+  function updateSphereValue(sphereId, value) {
+    setState((current) => ({
+      ...current,
+      spheres: {
+        ...current.spheres,
+        [sphereId]: clamp(value, 0, 100),
+      },
+    }));
+  }
+
   function resetDemo() {
     const freshState = createInitialState();
     setState(freshState);
+    setSelectedBalanceSphereId("growth");
     setDraftMode("create");
     setGoalDraft(createEmptyGoalDraft());
     setConstructorStep(1);
@@ -2399,9 +2781,9 @@ export default function MentoristPrototype() {
         <aside className="command-rail">
           <div className="brand-panel">
             <span className="brand-panel__eyebrow">Рабочий демо-кабинет Mentorist</span>
-            <h1>Жизненная стратегия, цели, наставничество и групповая поддержка в одном контуре</h1>
+            <h1>Связный кабинет личной стратегии</h1>
             <p>
-              Кабинет устроен так, чтобы личное видение, текущие цели, недельный ритм, полезный контент и общение с наставниками не жили в разных местах.
+              Цели, баланс сфер, наставничество, группы и недельный ритм работают как одна система, а не как разрозненные экраны.
             </p>
           </div>
 
@@ -2463,7 +2845,13 @@ export default function MentoristPrototype() {
             </div>
 
             <div className="hero-panel__hub">
-              <HeroRing average={averageBalance} />
+              <HeroRing
+                average={averageBalance}
+                onChangeSphere={updateSphereValue}
+                onSelectSphere={setSelectedBalanceSphereId}
+                selectedSphereId={selectedBalanceSphereId}
+                spheres={state.spheres}
+              />
               <div className="ability-row">
                 <span>{activeGoals.length} активные цели</span>
                 <span>{joinedGroups.length} группы в ленте</span>

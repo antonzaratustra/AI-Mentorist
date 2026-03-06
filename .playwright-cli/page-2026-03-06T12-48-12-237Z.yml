@@ -1,0 +1,196 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - complementary [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e6]: Рабочий демо-кабинет Mentorist
+          - heading "Жизненная стратегия, цели, наставничество и групповая поддержка в одном контуре" [level=1] [ref=e7]
+          - paragraph [ref=e8]: Кабинет устроен так, чтобы личное видение, текущие цели, недельный ритм, полезный контент и общение с наставниками не жили в разных местах.
+        - navigation "Модули приложения" [ref=e9]:
+          - button "Профиль Баланс и состояние" [ref=e10] [cursor=pointer]:
+            - generic [ref=e11]: Профиль
+            - generic [ref=e12]: Баланс и состояние
+          - button "Формер Внутренняя стратегия" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14]: Формер
+            - generic [ref=e15]: Внутренняя стратегия
+          - button "Цели План и прогресс" [ref=e16] [cursor=pointer]:
+            - generic [ref=e17]: Цели
+            - generic [ref=e18]: План и прогресс
+          - button "Конструктор Создание цели" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20]: Конструктор
+            - generic [ref=e21]: Создание цели
+          - button "Контакты Менторы и мэйдеи" [ref=e22] [cursor=pointer]:
+            - generic [ref=e23]: Контакты
+            - generic [ref=e24]: Менторы и мэйдеи
+          - button "Лента Напоминания и посты" [ref=e25] [cursor=pointer]:
+            - generic [ref=e26]: Лента
+            - generic [ref=e27]: Напоминания и посты
+          - button "Группы Коллективный слой" [ref=e28] [cursor=pointer]:
+            - generic [ref=e29]: Группы
+            - generic [ref=e30]: Коллективный слой
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - paragraph [ref=e34]: Энергии
+              - heading "Текущий ресурс" [level=3] [ref=e35]
+            - button "Сбросить демо" [ref=e36] [cursor=pointer]
+          - generic [ref=e37]:
+            - article [ref=e38]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: IN
+                - strong [ref=e41]: "78"
+              - heading "Интеллект" [level=3] [ref=e42]
+              - paragraph [ref=e43]: Нужен для анализа, обратной связи и качественного контента.
+            - article [ref=e46]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: AK
+                - strong [ref=e49]: "65"
+              - heading "Активность" [level=3] [ref=e50]
+              - paragraph [ref=e51]: Тратится на этапы, дедлайны и движение по целям.
+            - article [ref=e54]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: IF
+                - strong [ref=e57]: "59"
+              - heading "Информативность" [level=3] [ref=e58]
+              - paragraph [ref=e59]: Растет, когда материалы и комментарии действительно полезны.
+            - article [ref=e62]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: ME
+                - strong [ref=e65]: "84"
+              - heading "Менто" [level=3] [ref=e66]
+              - paragraph [ref=e67]: Главная валюта внимания, доверия и обязательств внутри сервиса.
+        - generic [ref=e70]:
+          - paragraph [ref=e71]: Фраза на сегодня
+          - blockquote [ref=e72]: Не обещать себе идеальную жизнь, а строить рабочую систему, которую реально можно проживать каждый день.
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: Баланс и состояние
+            - heading "Кабинет с балансом сфер, энергиями и быстрыми действиями" [level=2] [ref=e77]
+            - paragraph [ref=e78]: "Здесь видно общий ритм недели: куда уходит энергия, какие цели тянут вперед и что требует внимания прямо сейчас."
+            - generic [ref=e79]:
+              - article [ref=e80]:
+                - generic [ref=e81]:
+                  - strong [ref=e82]: Здоровье
+                  - generic [ref=e83]: "72"
+              - article [ref=e86]:
+                - generic [ref=e87]:
+                  - strong [ref=e88]: Отношения
+                  - generic [ref=e89]: "64"
+              - article [ref=e92]:
+                - generic [ref=e93]:
+                  - strong [ref=e94]: Развитие
+                  - generic [ref=e95]: "81"
+              - article [ref=e98]:
+                - generic [ref=e99]:
+                  - strong [ref=e100]: Дело
+                  - generic [ref=e101]: "69"
+          - generic [ref=e104]:
+            - generic [ref=e106]:
+              - generic [ref=e107]: Баланс
+              - strong [ref=e108]: "72"
+              - generic [ref=e109]: средний индекс по 4 сферам
+            - generic [ref=e110]:
+              - generic [ref=e111]: 3 активные цели
+              - generic [ref=e112]: 4 группы в ленте
+              - generic [ref=e113]: 1 непрочитанных сообщения
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - strong [ref=e116]: Горизонт
+              - paragraph [ref=e117]: Через три года я веду студию смыслового контента, бегаю без срывов и поддерживаю устойчивый ритм жизни без ощущения хаоса.
+            - generic [ref=e118]:
+              - strong [ref=e119]: Фокус недели
+              - paragraph [ref=e120]: "Бегать по утрам: 12 пробежек и 100 км за март"
+            - generic [ref=e121]:
+              - strong [ref=e122]: Следующее напоминание
+              - paragraph [ref=e123]: "Понедельник: Разобрать рабочий стол и подготовить форму — личная задача"
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - generic [ref=e127]: Активный контур
+              - heading "Профиль" [level=3] [ref=e128]
+            - generic [ref=e129]:
+              - generic [ref=e130]: 4 целей в системе
+              - generic [ref=e131]: 5 постов в ленте
+              - generic [ref=e132]: 5 опорных ценностей
+          - generic [ref=e133]: "Демо-данные можно свободно менять: добавляй цели, закрывай этапы, пиши в чаты и публикуй посты."
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic:
+                - generic: здоровье
+                - generic: ритм
+                - generic: хочу
+                - generic: обзор
+                - generic: система
+                - generic: вернуть
+                - generic: шаблон
+                - generic: собрать
+                - generic: стратегию
+                - generic: срывов
+                - generic: устойчивый
+                - generic: жизни
+                - generic: хаоса
+                - generic: голову
+              - generic [ref=e136]:
+                - generic [ref=e137]: MV
+                - generic [ref=e138]:
+                  - paragraph [ref=e139]: Личный вектор
+                  - heading "Марина Волкова" [level=3] [ref=e140]
+                  - paragraph [ref=e141]: Редактор и методист
+                  - paragraph [ref=e142]: Собрать личную стратегию так, чтобы работа, развитие, отношения и здоровье поддерживали друг друга, а не конкурировали за остатки внимания.
+            - generic [ref=e143]:
+              - paragraph [ref=e144]: Активные цели
+              - generic [ref=e145]:
+                - button "Бегать по утрам 33% 12 пробежек и 100 км за март" [ref=e146] [cursor=pointer]:
+                  - generic [ref=e147]:
+                    - strong [ref=e148]: Бегать по утрам
+                    - generic [ref=e149]: 33%
+                  - paragraph [ref=e150]: 12 пробежек и 100 км за март
+                - button "Вернуть семейный вечер 33% 4 вечера подряд без срывов и телефонов за столом" [ref=e153] [cursor=pointer]:
+                  - generic [ref=e154]:
+                    - strong [ref=e155]: Вернуть семейный вечер
+                    - generic [ref=e156]: 33%
+                  - paragraph [ref=e157]: 4 вечера подряд без срывов и телефонов за столом
+                - button "Делать недельный обзор без пропусков 50% 4 обзора подряд с решениями по всем четырем сферам" [ref=e160] [cursor=pointer]:
+                  - generic [ref=e161]:
+                    - strong [ref=e162]: Делать недельный обзор без пропусков
+                    - generic [ref=e163]: 50%
+                  - paragraph [ref=e164]: 4 обзора подряд с решениями по всем четырем сферам
+              - button "Добавить цель" [ref=e168] [cursor=pointer]
+            - generic [ref=e169]:
+              - paragraph [ref=e170]: Быстрые действия
+              - generic [ref=e171]:
+                - button "Фокус недели Открыть цель, которая требует следующего шага уже сегодня." [ref=e172] [cursor=pointer]:
+                  - strong [ref=e173]: Фокус недели
+                  - generic [ref=e174]: Открыть цель, которая требует следующего шага уже сегодня.
+                - button "Лингвобомба Перейти в контакты и отправить быстрый запрос на честный фидбек." [ref=e175] [cursor=pointer]:
+                  - strong [ref=e176]: Лингвобомба
+                  - generic [ref=e177]: Перейти в контакты и отправить быстрый запрос на честный фидбек.
+                - button "Разгон энергии Начислить небольшую поддержку и зафиксировать импульс в событиях." [ref=e178] [cursor=pointer]:
+                  - strong [ref=e179]: Разгон энергии
+                  - generic [ref=e180]: Начислить небольшую поддержку и зафиксировать импульс в событиях.
+                - button "Смена оптики Открыть SWOT и перепроверить цель через ограничения и возможности." [ref=e181] [cursor=pointer]:
+                  - strong [ref=e182]: Смена оптики
+                  - generic [ref=e183]: Открыть SWOT и перепроверить цель через ограничения и возможности.
+            - generic [ref=e184]:
+              - paragraph [ref=e185]: Что изменилось сегодня
+              - generic [ref=e186]:
+                - article [ref=e187]:
+                  - generic [ref=e188]: 09:20
+                  - heading "Этап по цели «Бегать по утрам» уже закрыт" [level=3] [ref=e189]
+                  - paragraph [ref=e190]: Подготовительный этап завершен, активность выросла, а группа увидела отчет.
+                - article [ref=e191]:
+                  - generic [ref=e192]: 10:10
+                  - heading "В формер сохранен полезный разбор из группы" [level=3] [ref=e193]
+                  - paragraph [ref=e194]: Материал про недельные обзоры добавлен в лайфхаки и доступен из конструктора.
+                - article [ref=e195]:
+                  - generic [ref=e196]: 11:00
+                  - heading "Семейный вечер поставлен в планнер" [level=3] [ref=e197]
+                  - paragraph [ref=e198]: Слот закреплен на среду и защищен от переноса без причины.
+                - article [ref=e199]:
+                  - generic [ref=e200]: 11:50
+                  - heading "Пост по стратегии недели набирает оценки" [level=3] [ref=e201]
+                  - paragraph [ref=e202]: Информативность растет, потому что разбор признали полезным для группы.
+  - button "Open Next.js Dev Tools" [ref=e208] [cursor=pointer]:
+    - img [ref=e209]
+  - alert [ref=e212]
