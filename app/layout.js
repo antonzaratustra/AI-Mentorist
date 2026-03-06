@@ -4,6 +4,11 @@ export const metadata = {
   title: "Mentorist Prototype",
   description:
     "Interactive Next.js prototype of the Mentorist life strategy service.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
