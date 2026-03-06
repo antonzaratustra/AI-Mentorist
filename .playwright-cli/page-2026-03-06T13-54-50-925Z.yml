@@ -1,0 +1,258 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - complementary [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e6]: Рабочий демо-кабинет Mentorist
+          - heading "Связный кабинет личной стратегии" [level=1] [ref=e7]
+          - paragraph [ref=e8]: Цели, баланс сфер, наставничество, группы и недельный ритм работают как одна система, а не как разрозненные экраны.
+        - generic [ref=e9]:
+          - generic [ref=e10]:
+            - generic [ref=e11]:
+              - paragraph [ref=e12]: Тест шрифтов
+              - heading "Комбинация 01" [level=3] [ref=e13]
+            - generic [ref=e14]: "#01"
+          - generic [ref=e15]:
+            - strong [ref=e16]: Связный кабинет личной стратегии
+            - paragraph [ref=e17]: Следующее напоминание, карточки сфер и рабочие подписи должны звучать как одна система.
+          - generic [ref=e18]:
+            - strong [ref=e19]: Proxima Nova / Proxima Nova
+            - paragraph [ref=e20]: Максимально цельный гротеск без смены характера между крупным и мелким текстом.
+          - generic [ref=e21]:
+            - button "01 Proxima Nova / Proxima Nova Максимально цельный гротеск без смены характера между крупным и мелким текстом." [ref=e22] [cursor=pointer]:
+              - generic [ref=e23]: "01"
+              - strong [ref=e24]: Proxima Nova / Proxima Nova
+              - generic [ref=e25]: Максимально цельный гротеск без смены характера между крупным и мелким текстом.
+            - button "02 Proxima Nova / Avenir Next Плотный заголовок с более мягким набором в абзацах и карточках." [ref=e26] [cursor=pointer]:
+              - generic [ref=e27]: "02"
+              - strong [ref=e28]: Proxima Nova / Avenir Next
+              - generic [ref=e29]: Плотный заголовок с более мягким набором в абзацах и карточках.
+            - button "03 Avenir Next / Avenir Next Спокойный продуктовый вариант без акцентной смены фактуры." [ref=e30] [cursor=pointer]:
+              - generic [ref=e31]: "03"
+              - strong [ref=e32]: Avenir Next / Avenir Next
+              - generic [ref=e33]: Спокойный продуктовый вариант без акцентной смены фактуры.
+            - button "04 Segoe UI / Proxima Nova Более технический верх с мягким телом текста и без горизонтального сжатия." [ref=e34] [cursor=pointer]:
+              - generic [ref=e35]: "04"
+              - strong [ref=e36]: Segoe UI / Proxima Nova
+              - generic [ref=e37]: Более технический верх с мягким телом текста и без горизонтального сжатия.
+        - navigation "Модули приложения" [ref=e38]:
+          - button "Профиль Баланс и состояние" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: Профиль
+            - generic [ref=e41]: Баланс и состояние
+          - button "Формер Внутренняя стратегия" [ref=e42] [cursor=pointer]:
+            - generic [ref=e43]: Формер
+            - generic [ref=e44]: Внутренняя стратегия
+          - button "Цели План и прогресс" [ref=e45] [cursor=pointer]:
+            - generic [ref=e46]: Цели
+            - generic [ref=e47]: План и прогресс
+          - button "Конструктор Создание цели" [ref=e48] [cursor=pointer]:
+            - generic [ref=e49]: Конструктор
+            - generic [ref=e50]: Создание цели
+          - button "Контакты Менторы и мэйдеи" [ref=e51] [cursor=pointer]:
+            - generic [ref=e52]: Контакты
+            - generic [ref=e53]: Менторы и мэйдеи
+          - button "Лента Напоминания и посты" [ref=e54] [cursor=pointer]:
+            - generic [ref=e55]: Лента
+            - generic [ref=e56]: Напоминания и посты
+          - button "Группы Коллективный слой" [ref=e57] [cursor=pointer]:
+            - generic [ref=e58]: Группы
+            - generic [ref=e59]: Коллективный слой
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - paragraph [ref=e63]: Энергии
+              - heading "Текущий ресурс" [level=3] [ref=e64]
+            - button "Сбросить демо" [ref=e65] [cursor=pointer]
+          - generic [ref=e66]:
+            - article [ref=e67]:
+              - generic [ref=e68]:
+                - generic [ref=e69]: IN
+                - strong [ref=e70]: "78"
+              - heading "Интеллект" [level=3] [ref=e71]
+              - paragraph [ref=e72]: Нужен для анализа, обратной связи и качественного контента.
+            - article [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e77]: AK
+                - strong [ref=e78]: "65"
+              - heading "Активность" [level=3] [ref=e79]
+              - paragraph [ref=e80]: Тратится на этапы, дедлайны и движение по целям.
+            - article [ref=e83]:
+              - generic [ref=e84]:
+                - generic [ref=e85]: IF
+                - strong [ref=e86]: "59"
+              - heading "Информативность" [level=3] [ref=e87]
+              - paragraph [ref=e88]: Растет, когда материалы и комментарии действительно полезны.
+            - article [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: ME
+                - strong [ref=e94]: "84"
+              - heading "Менто" [level=3] [ref=e95]
+              - paragraph [ref=e96]: Главная валюта внимания, доверия и обязательств внутри сервиса.
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: Фраза на сегодня
+          - blockquote [ref=e101]: Не обещать себе идеальную жизнь, а строить рабочую систему, которую реально можно проживать каждый день.
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: Баланс и состояние
+            - heading "Баланс сфер, энергий и активных контуров" [level=2] [ref=e106]
+            - paragraph [ref=e107]: Колесо баланса, активные цели и события недели собраны в один экран, чтобы состояние системы было видно без переключений.
+            - generic [ref=e108]:
+              - article [ref=e109]:
+                - generic [ref=e110]:
+                  - strong [ref=e111]: Здоровье
+                  - generic [ref=e112]: "72"
+              - article [ref=e115]:
+                - generic [ref=e116]:
+                  - strong [ref=e117]: Отношения
+                  - generic [ref=e118]: "64"
+              - article [ref=e121]:
+                - generic [ref=e122]:
+                  - strong [ref=e123]: Развитие
+                  - generic [ref=e124]: "81"
+              - article [ref=e127]:
+                - generic [ref=e128]:
+                  - strong [ref=e129]: Дело
+                  - generic [ref=e130]: "69"
+          - generic [ref=e133]:
+            - generic [ref=e134]:
+              - img [ref=e136]:
+                - generic [ref=e150]: БАЛАНС
+                - generic [ref=e151]: "72"
+                - generic [ref=e152]: СРЕДНИЙ ИНДЕКС ПО 4 СФЕРАМ
+              - generic [ref=e153]:
+                - button "Рост 81" [ref=e154] [cursor=pointer]:
+                  - generic [ref=e155]: Рост
+                  - strong [ref=e156]: "81"
+                - button "Здоровье 72" [ref=e157] [cursor=pointer]:
+                  - generic [ref=e158]: Здоровье
+                  - strong [ref=e159]: "72"
+                - button "Дело 69" [ref=e160] [cursor=pointer]:
+                  - generic [ref=e161]: Дело
+                  - strong [ref=e162]: "69"
+                - button "Отношения 64" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]: Отношения
+                  - strong [ref=e165]: "64"
+              - generic [ref=e166]:
+                - generic [ref=e167]:
+                  - generic [ref=e168]: Управление сферой
+                  - heading "Развитие" [level=3] [ref=e169]
+                  - paragraph [ref=e170]: Перетаскивай нужный сегмент по радиусу или меняй значение точечно.
+                - generic [ref=e171]:
+                  - button "−" [ref=e172] [cursor=pointer]
+                  - slider "Состояние сферы Развитие" [ref=e173]: "81"
+                  - button "+" [ref=e174] [cursor=pointer]
+            - generic [ref=e175]:
+              - generic [ref=e176]: 3 активные цели
+              - generic [ref=e177]: 4 группы в ленте
+              - generic [ref=e178]: 1 непрочитанных сообщения
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - strong [ref=e181]: Горизонт
+              - paragraph [ref=e182]: Через три года я веду студию смыслового контента, бегаю без срывов и поддерживаю устойчивый ритм жизни без ощущения хаоса.
+            - generic [ref=e183]:
+              - strong [ref=e184]: Фокус недели
+              - paragraph [ref=e185]: "Бегать по утрам: 12 пробежек и 100 км за март"
+            - generic [ref=e186]:
+              - strong [ref=e187]: Следующее напоминание
+              - paragraph [ref=e188]: "Понедельник: Разобрать рабочий стол и подготовить форму — личная задача"
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - generic [ref=e192]: Активный контур
+              - heading "Профиль" [level=3] [ref=e193]
+            - generic [ref=e194]:
+              - generic [ref=e195]: 4 целей в системе
+              - generic [ref=e196]: 5 постов в ленте
+              - generic [ref=e197]: 5 опорных ценностей
+          - generic [ref=e198]: "Демо-данные можно свободно менять: добавляй цели, закрывай этапы, пиши в чаты и публикуй посты."
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - generic [ref=e202]:
+                - paragraph [ref=e203]: Карта смыслов
+                - heading "Семантическое поле текущей стратегии" [level=3] [ref=e204]
+              - generic [ref=e205]:
+                - generic [ref=e206]:
+                  - generic [ref=e207]: Тяни фон и смотри, какие слова реально держат стратегию.
+                  - generic [ref=e208]:
+                    - button "Уменьшить масштаб" [ref=e209] [cursor=pointer]: −
+                    - button "Увеличить масштаб" [ref=e210] [cursor=pointer]: +
+                    - button "Центр" [ref=e211] [cursor=pointer]
+                - generic [ref=e213]:
+                  - generic [ref=e214]:
+                    - generic [ref=e215]: MV
+                    - generic [ref=e216]:
+                      - paragraph [ref=e217]: Личный вектор
+                      - heading "Марина Волкова" [level=3] [ref=e218]
+                      - paragraph [ref=e219]: Редактор и методист
+                      - paragraph [ref=e220]: Собрать личную стратегию так, чтобы работа, развитие, отношения и здоровье поддерживали друг друга, а не конкурировали за остатки внимания.
+                  - generic: здоровье
+                  - generic: ритм
+                  - generic: хочу
+                  - generic: обзор
+                  - generic: система
+                  - generic: вернуть
+                  - generic: шаблон
+                  - generic: собрать
+                  - generic: стратегию
+                  - generic: срывов
+                  - generic: устойчивый
+                  - generic: жизни
+                  - generic: хаоса
+                  - generic: голову
+            - generic [ref=e221]:
+              - paragraph [ref=e222]: Активные цели
+              - generic [ref=e223]:
+                - button "Бегать по утрам 33% 12 пробежек и 100 км за март" [ref=e224] [cursor=pointer]:
+                  - generic [ref=e225]:
+                    - strong [ref=e226]: Бегать по утрам
+                    - generic [ref=e227]: 33%
+                  - paragraph [ref=e228]: 12 пробежек и 100 км за март
+                - button "Вернуть семейный вечер 33% 4 вечера подряд без срывов и телефонов за столом" [ref=e231] [cursor=pointer]:
+                  - generic [ref=e232]:
+                    - strong [ref=e233]: Вернуть семейный вечер
+                    - generic [ref=e234]: 33%
+                  - paragraph [ref=e235]: 4 вечера подряд без срывов и телефонов за столом
+                - button "Делать недельный обзор без пропусков 50% 4 обзора подряд с решениями по всем четырем сферам" [ref=e238] [cursor=pointer]:
+                  - generic [ref=e239]:
+                    - strong [ref=e240]: Делать недельный обзор без пропусков
+                    - generic [ref=e241]: 50%
+                  - paragraph [ref=e242]: 4 обзора подряд с решениями по всем четырем сферам
+              - button "Добавить цель" [ref=e246] [cursor=pointer]
+            - generic [ref=e247]:
+              - paragraph [ref=e248]: Быстрые действия
+              - generic [ref=e249]:
+                - button "Фокус недели Открыть цель, которая требует следующего шага уже сегодня." [ref=e250] [cursor=pointer]:
+                  - strong [ref=e251]: Фокус недели
+                  - generic [ref=e252]: Открыть цель, которая требует следующего шага уже сегодня.
+                - button "Лингвобомба Перейти в контакты и отправить быстрый запрос на честный фидбек." [ref=e253] [cursor=pointer]:
+                  - strong [ref=e254]: Лингвобомба
+                  - generic [ref=e255]: Перейти в контакты и отправить быстрый запрос на честный фидбек.
+                - button "Разгон энергии Начислить небольшую поддержку и зафиксировать импульс в событиях." [ref=e256] [cursor=pointer]:
+                  - strong [ref=e257]: Разгон энергии
+                  - generic [ref=e258]: Начислить небольшую поддержку и зафиксировать импульс в событиях.
+                - button "Смена оптики Открыть SWOT и перепроверить цель через ограничения и возможности." [ref=e259] [cursor=pointer]:
+                  - strong [ref=e260]: Смена оптики
+                  - generic [ref=e261]: Открыть SWOT и перепроверить цель через ограничения и возможности.
+            - generic [ref=e262]:
+              - paragraph [ref=e263]: Что изменилось сегодня
+              - generic [ref=e264]:
+                - article [ref=e265]:
+                  - generic [ref=e266]: 09:20
+                  - heading "Этап по цели «Бегать по утрам» уже закрыт" [level=3] [ref=e267]
+                  - paragraph [ref=e268]: Подготовительный этап завершен, активность выросла, а группа увидела отчет.
+                - article [ref=e269]:
+                  - generic [ref=e270]: 10:10
+                  - heading "В формер сохранен полезный разбор из группы" [level=3] [ref=e271]
+                  - paragraph [ref=e272]: Материал про недельные обзоры добавлен в лайфхаки и доступен из конструктора.
+                - article [ref=e273]:
+                  - generic [ref=e274]: 11:00
+                  - heading "Семейный вечер поставлен в планнер" [level=3] [ref=e275]
+                  - paragraph [ref=e276]: Слот закреплен на среду и защищен от переноса без причины.
+                - article [ref=e277]:
+                  - generic [ref=e278]: 11:50
+                  - heading "Пост по стратегии недели набирает оценки" [level=3] [ref=e279]
+                  - paragraph [ref=e280]: Информативность растет, потому что разбор признали полезным для группы.
+  - button "Open Next.js Dev Tools" [ref=e286] [cursor=pointer]:
+    - img [ref=e287]
+  - alert [ref=e290]

@@ -57,6 +57,57 @@ export const MODULES = [
   },
 ];
 
+export const FONT_PRESETS = [
+  {
+    id: "font-01",
+    number: "01",
+    name: "Proxima Nova Local / Avenir",
+    note: "Если Proxima Nova установлена локально, это будет самый близкий к ней цельный вариант.",
+    display: "\"Proxima Nova\", \"Trebuchet MS\", \"Avenir Next\", \"Segoe UI\", sans-serif",
+    body: "\"Proxima Nova\", \"Avenir Next\", \"Trebuchet MS\", \"Segoe UI\", sans-serif",
+    displayWeight: 800,
+    bodyWeight: 650,
+    displayTracking: "-0.018em",
+    bodyTracking: "-0.008em",
+  },
+  {
+    id: "font-02",
+    number: "02",
+    name: "Avenir Next / Avenir Next",
+    note: "Чистый не-сплющенный вариант с ровной продуктовой пластикой.",
+    display: "\"Avenir Next\", \"Segoe UI\", \"Trebuchet MS\", sans-serif",
+    body: "\"Avenir Next\", \"Segoe UI\", \"Trebuchet MS\", sans-serif",
+    displayWeight: 760,
+    bodyWeight: 640,
+    displayTracking: "-0.028em",
+    bodyTracking: "-0.012em",
+  },
+  {
+    id: "font-03",
+    number: "03",
+    name: "Trebuchet / Trebuchet",
+    note: "Более широкий гуманистический гротеск с заметно другим ритмом строк.",
+    display: "\"Trebuchet MS\", \"Segoe UI\", \"Avenir Next\", sans-serif",
+    body: "\"Trebuchet MS\", \"Segoe UI\", \"Avenir Next\", sans-serif",
+    displayWeight: 700,
+    bodyWeight: 600,
+    displayTracking: "-0.012em",
+    bodyTracking: "-0.004em",
+  },
+  {
+    id: "font-04",
+    number: "04",
+    name: "Georgia / Avenir",
+    note: "Контрастный тест: мягкий редакторский заголовок и нейтральное тело текста.",
+    display: "Georgia, \"Times New Roman\", serif",
+    body: "\"Avenir Next\", \"Segoe UI\", \"Trebuchet MS\", sans-serif",
+    displayWeight: 700,
+    bodyWeight: 620,
+    displayTracking: "-0.016em",
+    bodyTracking: "-0.01em",
+  },
+];
+
 export const SPHERE_ORDER = ["health", "relationships", "growth", "work"];
 
 export const SPHERE_META = {

@@ -21,8 +21,12 @@
   --violet: #9197ff;
   --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.34);
   --shadow-strong: 0 36px 120px rgba(0, 0, 0, 0.42);
-  --font-display: "Avenir Next Condensed", "Arial Narrow", "Trebuchet MS", sans-serif;
-  --font-body: "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-display: "Proxima Nova", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Avenir Next", "Proxima Nova", "Segoe UI", sans-serif;
+  --font-display-weight: 800;
+  --font-body-weight: 650;
+  --font-display-tracking: -0.02em;
+  --font-body-tracking: -0.01em;
 }
 
 * {
@@ -187,6 +191,31 @@ button {
 .brand-panel h1,
 .hero-panel h2,
 .workspace__head h3,
+.goal-map__core {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  letter-spacing: var(--font-display-tracking);
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+}
+
+.brand-panel h1 {
+  max-width: 13ch;
+  font-size: clamp(2.2rem, 2.3vw, 2.7rem);
+  line-height: 0.94;
+}
+
+.hero-panel h2 {
+  max-width: 18ch;
+  font-size: clamp(2.4rem, 3.2vw, 3.35rem);
+  line-height: 0.96;
+}
+
+.workspace__head h3 {
+  font-size: clamp(1.9rem, 2.2vw, 2.3rem);
+}
+
 .panel h3,
 .energy-card h3,
 .goal-card strong,
@@ -194,30 +223,20 @@ button {
 .action-card strong,
 .detail-card strong,
 .group-lane h3,
-.goal-map__core,
-.contact-node strong {
+.contact-node strong,
+.sphere-card__head strong,
+.goal-detail__head h3,
+.group-card strong,
+.stage-item strong,
+.event-item strong,
+.summary-card strong {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 0.96;
-  overflow-wrap: anywhere;
-}
-
-.brand-panel h1 {
-  max-width: 13ch;
-  font-size: clamp(2.2rem, 2.3vw, 2.7rem);
-  line-height: 0.93;
-}
-
-.hero-panel h2 {
-  max-width: 18ch;
-  font-size: clamp(2.4rem, 3.2vw, 3.35rem);
-  line-height: 0.94;
-}
-
-.workspace__head h3 {
-  font-size: clamp(1.9rem, 2.2vw, 2.3rem);
+  font-family: var(--font-body);
+  font-weight: var(--font-body-weight);
+  letter-spacing: var(--font-body-tracking);
+  line-height: 1.14;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .brand-panel p,
@@ -299,6 +318,116 @@ button {
   background:
     linear-gradient(180deg, rgba(11, 23, 40, 0.96), rgba(9, 19, 34, 0.86)),
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 38%);
+}
+
+.font-lab-panel {
+  gap: 14px;
+}
+
+.font-lab__sample,
+.font-lab__active,
+.font-lab__options {
+  display: grid;
+  gap: 10px;
+}
+
+.font-lab__sample {
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.font-lab__sample strong,
+.font-lab__active strong,
+.font-option strong {
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.12;
+}
+
+.font-lab__sample strong {
+  font-size: 1.22rem;
+  font-weight: var(--font-display-weight);
+  letter-spacing: var(--font-display-tracking);
+}
+
+.font-lab__active p,
+.font-option small {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.font-lab__availability {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  padding: 0.22rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.font-lab__availability.is-ready {
+  background: rgba(158, 224, 78, 0.14);
+  color: #d7ffaa;
+}
+
+.font-lab__availability.is-fallback {
+  background: rgba(255, 198, 75, 0.14);
+  color: #ffe5a2;
+}
+
+.font-option {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  padding: 12px 13px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(9, 20, 35, 0.9);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.font-option:hover,
+.font-option:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(85, 216, 255, 0.24);
+  outline: none;
+}
+
+.font-option.is-active {
+  border-color: rgba(85, 216, 255, 0.34);
+  background: linear-gradient(135deg, rgba(85, 216, 255, 0.14), rgba(145, 151, 255, 0.1));
+}
+
+.font-option span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-tertiary);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-option strong {
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.font-option small {
+  font-size: 0.8rem;
 }
 
 .rail-panel--quote blockquote {
@@ -607,7 +736,7 @@ button {
 .balance-wheel__value {
   fill: var(--text-primary);
   font-size: 54px;
-  font-weight: 800;
+  font-weight: var(--font-display-weight);
 }
 
 .balance-wheel__legend {
@@ -949,7 +1078,7 @@ button {
     inset 0 0 0 8px rgba(5, 12, 23, 0.92),
     0 16px 34px rgba(0, 0, 0, 0.34);
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: var(--font-display-weight);
 }
 
 .avatar-core {

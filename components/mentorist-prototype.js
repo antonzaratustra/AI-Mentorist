@@ -4,6 +4,7 @@ import { startTransition, useDeferredValue, useEffect, useRef, useState } from "
 import {
   CONTACT_REPLY_LIBRARY,
   ENERGY_META,
+  FONT_PRESETS,
   FORMER_SECTION_DEFS,
   MODULES,
   POST_TYPES,
@@ -15,6 +16,7 @@ import {
 } from "./mentorist-data";
 
 const STORAGE_KEY = "mentorist-demo-state-v2";
+const FONT_STORAGE_KEY = "mentorist-font-preset-v1";
 const USER_ID = "user";
 
 const STOP_WORDS = new Set([
@@ -351,6 +353,10 @@ function getGoalStatusTone(status) {
     default:
       return "accent";
   }
+}
+
+function findFontPreset(id) {
+  return FONT_PRESETS.find((preset) => preset.id === id) ?? FONT_PRESETS[0];
 }
 
 function polarToCartesian(cx, cy, radius, angle) {
@@ -705,6 +711,54 @@ function HeroRing({ average, spheres, selectedSphereId, onSelectSphere, onChange
         </div>
       </div>
     </div>
+  );
+}
+
+function FontLab({ fontPresetId, onSelectFontPreset, proximaAvailable }) {
+  const activePreset = findFontPreset(fontPresetId);
+
+  return (
+    <section className="rail-panel font-lab-panel">
+      <div className="panel-head panel-head--compact">
+        <div>
+          <p className="section-kicker">Тест шрифтов</p>
+          <h3>Комбинация {activePreset.number}</h3>
+        </div>
+        <span className="status-pill status-pill--info">#{activePreset.number}</span>
+      </div>
+
+      <div className="font-lab__sample">
+        <strong style={{ fontFamily: activePreset.display }}>Связный кабинет личной стратегии</strong>
+        <p style={{ fontFamily: activePreset.body }}>
+          Следующее напоминание, карточки сфер и рабочие подписи должны звучать как одна система.
+        </p>
+      </div>
+
+      <div className="font-lab__active">
+        <strong>{activePreset.name}</strong>
+        <p>{activePreset.note}</p>
+        {activePreset.id === "font-01" ? (
+          <span className={`font-lab__availability ${proximaAvailable ? "is-ready" : "is-fallback"}`}>
+            {proximaAvailable ? "Proxima Nova найдена локально" : "Proxima Nova не найдена, работает fallback"}
+          </span>
+        ) : null}
+      </div>
+
+      <div className="font-lab__options">
+        {FONT_PRESETS.map((preset) => (
+          <button
+            key={preset.id}
+            className={`font-option ${fontPresetId === preset.id ? "is-active" : ""}`}
+            onClick={() => onSelectFontPreset(preset.id)}
+            type="button"
+          >
+            <span>{preset.number}</span>
+            <strong style={{ fontFamily: preset.display }}>{preset.name}</strong>
+            <small style={{ fontFamily: preset.body }}>{preset.note}</small>
+          </button>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -1809,6 +1863,8 @@ export default function MentoristPrototype() {
   const [selectedGroupId, setSelectedGroupId] = useState(null);
   const [selectedPostId, setSelectedPostId] = useState(null);
   const [selectedBalanceSphereId, setSelectedBalanceSphereId] = useState("growth");
+  const [fontPresetId, setFontPresetId] = useState(FONT_PRESETS[0].id);
+  const [proximaAvailable, setProximaAvailable] = useState(false);
   const [formerDraft, setFormerDraft] = useState("");
   const [goalDraft, setGoalDraft] = useState(() => createEmptyGoalDraft());
   const [draftMode, setDraftMode] = useState("create");
@@ -1839,6 +1895,11 @@ export default function MentoristPrototype() {
       if (raw) {
         setState(JSON.parse(raw));
       }
+
+      const storedFontPreset = window.localStorage.getItem(FONT_STORAGE_KEY);
+      if (storedFontPreset && FONT_PRESETS.some((preset) => preset.id === storedFontPreset)) {
+        setFontPresetId(storedFontPreset);
+      }
     } catch {
       // Ignore corrupted local storage and keep demo defaults.
     } finally {
@@ -1853,6 +1914,30 @@ export default function MentoristPrototype() {
 
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }, [state, storageReady]);
+
+  useEffect(() => {
+    if (!storageReady) {
+      return;
+    }
+
+    window.localStorage.setItem(FONT_STORAGE_KEY, fontPresetId);
+  }, [fontPresetId, storageReady]);
+
+  useEffect(() => {
+    const activeFontPreset = findFontPreset(fontPresetId);
+    const root = document.documentElement;
+
+    root.style.setProperty("--font-display", activeFontPreset.display);
+    root.style.setProperty("--font-body", activeFontPreset.body);
+    root.style.setProperty("--font-display-weight", String(activeFontPreset.displayWeight));
+    root.style.setProperty("--font-body-weight", String(activeFontPreset.bodyWeight));
+    root.style.setProperty("--font-display-tracking", activeFontPreset.displayTracking);
+    root.style.setProperty("--font-body-tracking", activeFontPreset.bodyTracking);
+  }, [fontPresetId]);
+
+  useEffect(() => {
+    setProximaAvailable(Boolean(document.fonts?.check?.('16px "Proxima Nova"')));
+  }, []);
 
   useEffect(() => {
     if (!state.goals.some((goal) => goal.id === selectedGoalId)) {
@@ -2786,6 +2871,8 @@ export default function MentoristPrototype() {
               Цели, баланс сфер, наставничество, группы и недельный ритм работают как одна система, а не как разрозненные экраны.
             </p>
           </div>
+
+          <FontLab fontPresetId={fontPresetId} onSelectFontPreset={setFontPresetId} proximaAvailable={proximaAvailable} />
 
           <AppNav activeModule={activeModule} onNavigate={navigate} />
 
